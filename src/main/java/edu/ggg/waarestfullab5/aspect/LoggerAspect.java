@@ -19,40 +19,40 @@ public class LoggerAspect {
     }
 
     //@Pointcut("@annotation(edu.ggg.waarestfullab4.aspect.annotation.Logger)")
-    @Pointcut("within(edu.ggg.waarestfullab5.controller..*)")
-    public void logAround(){}
-
-    @Pointcut("within(edu.ggg.waarestfullab5.controller..*)" +
-            " || within(edu.ggg.waarestfullab5.services..*)" +
-            " || within(edu.ggg.waarestfullab5.repo..*)")
-    public void logException(){}
-
-    @Around(value = "logAround()")
-    public void logAround(ProceedingJoinPoint joinPoint) throws Throwable
-    {
-        Log log = new Log(
-                LocalDate.now(),
-                LocalTime.now(),
-                LocalTime.now(),
-                "Anonymous",
-                joinPoint.getSourceLocation().getWithinType().getName()+"."+joinPoint.getSignature().getName(),
-                null
-        );
-        joinPoint.proceed();
-        log.setEndTime(LocalTime.now());
-        service.save(log);
-    }
-
-    @AfterThrowing(value = "logException()", throwing = "exception")
-    public void logAfterThrowing(JoinPoint joinPoint, Exception exception) {
-        Log log = new Log(
-                LocalDate.now(),
-                null,
-                null,
-                "Anonymous",
-                "Class: "+joinPoint.getSourceLocation().getWithinType().getName()+"|Signature:"+ joinPoint.getSignature().getName(),
-                "MESSAGE: "+exception.getMessage()+" STACK TRACE: "+exception.getStackTrace()
-        );
-        service.save(log);
-    }
+//    @Pointcut("within(edu.ggg.waarestfullab5.controller..*)")
+//    public void logAround(){}
+//
+//    @Pointcut("within(edu.ggg.waarestfullab5.controller..*)" +
+//            " || within(edu.ggg.waarestfullab5.services..*)" +
+//            " || within(edu.ggg.waarestfullab5.repo..*)")
+//    public void logException(){}
+//
+//    @Around(value = "logAround()")
+//    public void logAround(ProceedingJoinPoint joinPoint) throws Throwable
+//    {
+//        Log log = new Log(
+//                LocalDate.now(),
+//                LocalTime.now(),
+//                LocalTime.now(),
+//                "Anonymous",
+//                joinPoint.getSourceLocation().getWithinType().getName()+"."+joinPoint.getSignature().getName(),
+//                null
+//        );
+//        joinPoint.proceed();
+//        log.setEndTime(LocalTime.now());
+//        service.save(log);
+//    }
+//
+//    @AfterThrowing(value = "logException()", throwing = "exception")
+//    public void logAfterThrowing(JoinPoint joinPoint, Exception exception) {
+//        Log log = new Log(
+//                LocalDate.now(),
+//                null,
+//                null,
+//                "Anonymous",
+//                "Class: "+joinPoint.getSourceLocation().getWithinType().getName()+"|Signature:"+ joinPoint.getSignature().getName(),
+//                "MESSAGE: "+exception.getMessage()+" STACK TRACE: "+exception.getStackTrace()
+//        );
+//        service.save(log);
+//    }
 }

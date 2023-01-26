@@ -7,6 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface UserRepo extends CrudRepository<User, Integer> {
+    User findByEmail(String email);
+    
     @Query("SELECT u FROM User u where size(u.posts) > :number")
     List<User> findUsersHaveMoreThanOnePost(int number);
 

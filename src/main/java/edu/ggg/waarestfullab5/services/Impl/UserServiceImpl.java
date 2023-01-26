@@ -6,12 +6,10 @@ import edu.ggg.waarestfullab5.domain.dto.PostDto;
 import edu.ggg.waarestfullab5.domain.dto.UserDto;
 import edu.ggg.waarestfullab5.repo.UserRepo;
 import edu.ggg.waarestfullab5.services.UserService;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,8 +20,8 @@ public class UserServiceImpl implements UserService {
     private UserRepo repo;
     private ModelMapper modelMapper;
 
-    @PersistenceContext
-    EntityManager entityManager;
+    //@PersistenceContext
+    //EntityManager entityManager;
 
     public UserServiceImpl(UserRepo repo, ModelMapper modelMapper){
         this.repo = repo;
@@ -70,7 +68,6 @@ public class UserServiceImpl implements UserService {
     }
     public void save(UserDto dto){
         User user = new User();modelMapper.map(dto, User.class);
-        user.setName(dto.getName());
         repo.save(user);
     }
 
