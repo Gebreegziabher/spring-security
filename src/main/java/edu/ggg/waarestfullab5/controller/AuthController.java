@@ -22,8 +22,7 @@ public class AuthController {
     @PostMapping
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         var loginResponse = authService.login(loginRequest);
-        return new ResponseEntity<LoginResponse>(
-                loginResponse, HttpStatus.OK);
+        return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
     }
 
     @PostMapping("/refreshToken")

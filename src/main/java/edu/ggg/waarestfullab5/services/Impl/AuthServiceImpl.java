@@ -26,7 +26,8 @@ public class AuthServiceImpl implements AuthService {
     public LoginResponse login(LoginRequest loginRequest) {
         try {
             var result = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
+                    new UsernamePasswordAuthenticationToken(
+                            loginRequest.getEmail(),
                             loginRequest.getPassword())
             );
         } catch (BadCredentialsException e) {

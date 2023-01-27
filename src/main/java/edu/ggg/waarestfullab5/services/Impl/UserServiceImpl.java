@@ -6,10 +6,10 @@ import edu.ggg.waarestfullab5.domain.dto.PostDto;
 import edu.ggg.waarestfullab5.domain.dto.UserDto;
 import edu.ggg.waarestfullab5.repo.UserRepo;
 import edu.ggg.waarestfullab5.services.UserService;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

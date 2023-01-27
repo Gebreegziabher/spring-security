@@ -1,6 +1,5 @@
 package edu.ggg.waarestfullab5.domain;
-
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
